@@ -5,7 +5,7 @@ const ProductList = ({ products }) => {
         <div className="col-md-6 col-lg-4 col-sm-12 mb-4" key={product.id}>
           <div className="card mb-4">
             <img
-              src={product.imageUrl || "https://via.placeholder.com/150"}
+              src={product.imageUrl}
               alt={product.name}
               className="card-img-top"
             />

@@ -42,21 +42,21 @@ public class DataSeeder implements CommandLineRunner {
         Product phone = new Product();
         phone.setName("iPhone");
         phone.setDescription("I love the ecosystem");
-        phone.setImageUrl("https://www.pexels.com/photo/black-iphone-on-black-surface-13570143/");
+        phone.setImageUrl("https://images.pexels.com/photos/13570143/pexels-photo-13570143.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
         phone.setPrice(699.90);
         phone.setCategory(electronics);
 
         Product apple = new Product();
         apple.setName("Apple");
         apple.setDescription("Apple Apple");
-        apple.setImageUrl("https://www.pexels.com/photo/red-and-orange-apple-fruit-102104/");
+        apple.setImageUrl("https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
         apple.setPrice(340.99);
         apple.setCategory(house);
 
         Product watermelon = new Product();
         watermelon.setName("Watermelon");
         watermelon.setDescription("Watermelon Watermelon");
-        watermelon.setImageUrl("https://www.pexels.com/photo/watermelon-fruit-1313267/");
+        watermelon.setImageUrl("https://images.pexels.com/photos/1313267/pexels-photo-1313267.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
         watermelon.setPrice(50.66);
         watermelon.setCategory(house);
 
