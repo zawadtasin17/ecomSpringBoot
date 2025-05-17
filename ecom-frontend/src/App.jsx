@@ -2,6 +2,7 @@ import { use, useEffect } from "react";
 import "./App.css";
 import ProductList from "./ProductList";
 import { useState } from "react";
+import CategoryFilter from "./CategoryFilter";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -34,13 +35,37 @@ function App() {
     setSortOrder(event.target.value);
   };
 
+  const handleCategorySelect = (categoryId) => {
+    setSelectedCategory(categoryId ? Number(categoryId) : null);
+  };
+
+  const filteredProducts = products
+    .filter((product) => {
+      const matchesCategory =
+        selectedCategory === null || product.category.id === selectedCategory;
+      const matchesSearchTerm = product.name
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase());
+      return matchesCategory && matchesSearchTerm;
+    })
+    .sort((a, b) => {
+      if (sortOrder === "asc") {
+        return a.price - b.price;
+      } else {
+        return b.price - a.price;
+      }
+    });
+
   return (
     <div className="container">
       <h1 className="my-4"> Product Catalog</h1>
 
       <div className="row-align-items-center mb-4">
         <div className="col-md-4 col-sm-12 mb-12">
-          <p>Filter by Category</p>
+          <CategoryFilter
+            categories={categories}
+            onSelect={handleCategorySelect}
+          />
         </div>
 
         <div className="col-md-4 col-sm-12 mb-12">
@@ -62,9 +87,9 @@ function App() {
       </div>
 
       <div>
-        {products.length ? (
+        {filteredProducts.length ? (
           // Display products
-          <ProductList products={products} />
+          <ProductList products={filteredProducts} />
         ) : (
           <p> No products available</p>
         )}
