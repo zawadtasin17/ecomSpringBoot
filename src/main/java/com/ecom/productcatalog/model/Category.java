@@ -2,7 +2,7 @@ package com.ecom.productcatalog.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.Set;
 
 @Entity
@@ -16,5 +16,6 @@ public class Category {
     @OneToMany(mappedBy = "category",
                 cascade = CascadeType.ALL,
                 fetch = FetchType.LAZY)
+    @JsonIgnore
     private Set<Product> products;
 }
